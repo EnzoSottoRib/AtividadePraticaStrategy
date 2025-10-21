@@ -1,8 +1,6 @@
-public class ClasseArqueiro extends ABSClasse{
-    public int forca = 8;
-    public int destreza = 15;
-    public int inteligencia = 7;
+public class ClasseArqueiro extends ABSPersonagem{
 
-    public int vida = 90;
-    public int mana = 80;
+    public ClasseArqueiro() {
+        super(8, 15, 7, 90, 80, new ContextoArma(new ArmaArcoElfico()));
+    }
 }

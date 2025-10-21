@@ -4,12 +4,12 @@ public class ContextoArma {
     ContextoArma(iArma Arma){
         this.Arma = Arma;
     }
-
+    
     public void setArma(iArma Arma){
-        this.setArma(Arma);
+        this.Arma = Arma;
     }
 
-    public void usarArma(iStatusEffect Effect){
-        this.Arma.atacar();
+    public void usarArma(ABSPersonagem atacador, ABSPersonagem atacado){
+        this.Arma.atacar(atacador, atacado);
     }
 }

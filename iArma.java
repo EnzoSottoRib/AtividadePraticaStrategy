@@ -1,4 +1,3 @@
 public interface iArma {
-    public int atacar();
-    //public int usarEfeitoEspecial();
+    public void atacar(ABSPersonagem atacador, ABSPersonagem atacado);
 }

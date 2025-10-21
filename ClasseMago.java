@@ -1,8 +1,7 @@
-public class ClasseMago extends ABSClasse{
-    public int forca = 5;
-    public int destreza = 7;
-    public int inteligencia = 18;
+public class ClasseMago extends ABSPersonagem{
+    public ClasseMago() {
+        super(5, 7, 18, 70, 150, new ContextoArma(new ArmaCajadoArcano()));
+    }
 
-    public int vida = 70;
-    public int mana = 150;
+    
 }

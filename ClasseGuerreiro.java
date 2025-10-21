@@ -1,8 +1,5 @@
-public class ClasseGuerreiro extends ABSClasse{
-    public int forca = 15;
-    public int destreza = 8;
-    public int inteligencia = 5;
-
-    public int vida = 120;
-    public int mana = 50;
+public class ClasseGuerreiro extends ABSPersonagem{
+    public ClasseGuerreiro() {
+        super(15, 8, 5, 120, 50, new ContextoArma(new ArmaEspadaLonga()));
+    }
 }

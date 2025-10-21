@@ -1,8 +1,20 @@
-public class ArmaCajadoArcano implements iArma{
+public class ArmaCajadoArcano extends ABSArma{
 
-    int danoBase = 8;
+    public int danoBase = 8;
+    public String efeitoEspecial = "Bola de Fogo - Causa queimadura (dano de 10 por 2 turnos)";
+    public int custoMana = 25;
+    public iStatusEffect efeito = new StatusEffectQueimadura();
+    public boolean requisito;
 
-    public int atacar(){
-        return danoBase;
+    @Override
+    public void atacar(ABSPersonagem atacador, ABSPersonagem atacado) {
+        this.requisito = atacador.inteligencia >= 12;
+
+        if(!requisito) return;
+
+        atacado.vida -= (danoBase + efeito.causarDano());
+
+        atacador.mana -= custoMana;
     }
+
 }
