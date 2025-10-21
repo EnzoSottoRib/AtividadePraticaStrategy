@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Batalha {
@@ -6,6 +7,7 @@ public class Batalha {
     private ABSPersonagem inimigo;
     private int turno;
     private Scanner scanner;
+    private Random random;
 
     public Batalha(ABSPersonagem jogador, ABSPersonagem inimigo) {
         this.jogador = jogador;
@@ -38,16 +40,28 @@ public class Batalha {
     private void executarTurnoJogador(){
         System.out.println("Escolha a sua ação: \n1 - Atacar \n2 - Trocar de arma e atacar \n Sua escolha: ");
         int escolha = scanner.nextInt();
+        Random random = new Random();
 
         switch (escolha) {
             case 1:
                 jogador.atacar(inimigo);
+                int randomNumberJogador = random.nextInt(100);
+                if (randomNumberJogador > 50){
+                    inimigo.vida -= 15;
+                    System.out.println("Dano crítico!!!");
+                } 
                 break;
             
             case 2:
                 trocarArma();
                 jogador.atacar(inimigo);
+                int randomNumberInimigo = random.nextInt(100);
+                if (randomNumberInimigo > 50){
+                    inimigo.vida -= 15;
+                    System.out.println("Dano crítico!!!");
+                } 
                 break;
+                
 
             default:
                 break;
@@ -56,7 +70,7 @@ public class Batalha {
     }
 
     private void trocarArma() {
-        System.out.println("Trocar arma\n1 - Arco Elfico\n2 - Cajado Arcano\n3 - Espada Longa\n4 - Machado de Guerra");
+        System.out.println("Trocar arma\n1 - Arco Elfico\n2 - Cajado Arcano\n3 - Espada Longa\n4 - Machado de Guerra\n5 - Som do Marcelo");
         int escolha = scanner.nextInt();
         switch (escolha) {
             case 1:
@@ -74,6 +88,9 @@ public class Batalha {
             case 4:
                 jogador.trocarArma(new ArmaMachadoDeGuerra());
                 break;
+                
+            case 5:
+                jogador.trocarArma(new ArmaSomDoMarcelo());
 
             default:
                 break;
